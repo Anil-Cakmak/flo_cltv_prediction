@@ -13,7 +13,7 @@ df = df_.copy()
 # Veriyi Anlama ve Hazırlama
 
 
-def check_df(dataframe, head=5):
+def check_df(dataframe, head=5, quantiles=(0.05, 0.50, 0.95, 0.99, 1)):
     print("##################### Shape #####################")
     print(dataframe.shape)
     print("##################### Types #####################")
@@ -24,8 +24,10 @@ def check_df(dataframe, head=5):
     print(dataframe.tail(head))
     print("##################### NA #####################")
     print(dataframe.isnull().sum())
+    print("##################### Index ####################")
+    print(dataframe.index)
     print("##################### Quantiles #####################")
-    print(dataframe.describe([0, 0.05, 0.50, 0.95, 0.99, 1]).T)
+    print(dataframe.describe(list(quantiles)).T)
 
 
 check_df(df)
